@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+  body { @apply bg-white text-ink font-sans antialiased; }
+  h1, h2, h3 { @apply font-display; }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-blush-500 px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-blush-600 focus:outline-none focus:ring-2 focus:ring-blush-400 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-blush-300 bg-white px-6 py-3 text-sm font-semibold text-blush-700 transition hover:bg-blush-50 focus:outline-none focus:ring-2 focus:ring-blush-300 disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-medium text-ink-soft transition hover:bg-blush-50 hover:text-blush-700;
+  }
+  .input {
+    @apply w-full rounded-xl border border-blush-200 bg-white px-4 py-2.5 text-sm text-ink placeholder:text-ink-light focus:border-blush-400 focus:outline-none focus:ring-2 focus:ring-blush-200;
+  }
+  .card { @apply rounded-2xl border border-blush-100 bg-white shadow-card; }
+  .label { @apply mb-1.5 block text-sm font-medium text-ink; }
+  .section-title { @apply font-display text-3xl font-semibold text-ink sm:text-4xl; }
+  .section-sub { @apply mt-3 max-w-2xl text-base text-ink-soft; }
+}
+
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-up { animation: fade-up 0.5s ease both; }
