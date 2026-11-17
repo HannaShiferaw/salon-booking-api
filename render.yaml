@@ -1,0 +1,26 @@
+# Render deployment for the Blush Beauty Salon API + PostgreSQL.
+# In the Render dashboard: New > Blueprint, point it at this repo.
+# Render creates the database and the web service, and wires
+# DATABASE_URL automatically. Set JWT_SECRET to a long random value.
+services:
+  - type: web
+    name: blush-salon-api
+    env: docker
+    dockerfilePath: ./Dockerfile
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: blush-salon-db
+          property: connectionString
+      - key: JWT_SECRET
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: https://hannashiferaw.github.io
+      - key: SEED_DEMO
+        value: "true"
+
+databases:
+  - name: blush-salon-db
+    plan: free

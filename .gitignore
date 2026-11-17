@@ -1,0 +1,30 @@
+# Dependencies & build output
+node_modules/
+frontend/dist/
+frontend/dist-ssr/
+*.local
+
+# Go
+backend/blush.db
+backend/*.db
+backend/blush
+backend/server
+
+# Environment & secrets — never commit these
+.env
+.env.local
+.env.*.local
+backend/.env
+frontend/.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.log
+
+# Test / coverage
+coverage/
+*.coverprofile
